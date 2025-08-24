@@ -1,0 +1,5 @@
+Id     Name,      Price ,       Discount,     Genre,     Age Rating,     Publisher
+G1,   The Legend of Zelda: Breath of the Wild, 59.99, Action-Adventure, E10+, nitendo
+G2,   Super Mario Odyssey, 49.99, Platformer, E10+, nitendo
+G3,   God of War, 39.99, Actionn, M, sony
+G4, Assasin's Creed Valhalla, 69.99, Action RPG, M, ubisoft

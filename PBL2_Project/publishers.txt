@@ -1,0 +1,4 @@
+P1;Nitendo
+P2;Sony Interactive Entertainment
+P3;Ubisoft
+P4;From Software
