@@ -1,22 +1,19 @@
-
 #include "publisher.h"
-Publisher::Publisher(const std::string &i, const std::string &n) {
+#include "game.h"
+
+class Game;
+Publisher::Publisher(const std::string &i, const std::string &sN, const std::string &n) {
 	id = i;
+	sortName = sN;
 	name = n;
 }
 
-const std::string& Publisher::getId() const {
-	return id;
-}
-
-const std::string& Publisher::getName()const {
-	return name;
-}
 
 std::ostream& operator <<(std::ostream& o, const Publisher& p) {
-	o << p.id << " " << p.name<<std::endl;
+	o << p.id << " " <<p.sortName<<" " << p.name << std::endl;
 	return o;
 }
-void Publisher::saveToFile(std::ofstream& out) const {
-	out << id << ";" << name << std::endl;
+
+void Publisher::addGame(const std::shared_ptr<Game>&g) {
+	gameList.push_back(g);
 }

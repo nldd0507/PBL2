@@ -124,12 +124,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Publisher.cpp" />
     <ClCompile Include="PublisherManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="publisher.h" />
     <ClInclude Include="PublisherManager.h" />
     <ClInclude Include="stack.h" />

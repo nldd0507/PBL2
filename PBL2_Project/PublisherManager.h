@@ -2,16 +2,26 @@
 #define Publisher_manager
 
 #include <vector>
-#include "Publisher.h"
+#include "publisher.h"
 
 class PublisherManager {
 private: 
-	std::vector<Publisher*> publishers;
+	std::vector<std::shared_ptr<Publisher>> publishers;
 public: 
-	~PublisherManager();
+	~PublisherManager() = default;
 
-	void addPublisher(Publisher* p);
-	void loadFromFile(const std::string& file="publishers.txt");
+	int sizePublisherList() const { return publishers.size(); }
+	std::shared_ptr<Publisher> getPublisherByName(const std::string& name) const;
+	Publisher* getPublisherAt(int index) {
+		if (index >= 0 && index < publishers.size()) {
+			return publishers[index].get();
+		}
+		return nullptr;
+	}
+
+	void addPublisher(const std::shared_ptr<Publisher>& p);
+	void importFromFile(const std::string& file = "publishers.txt");
+	void exportToFile(const std::string& file = "publishers.txt") const;
 	void printAll() const;
 };
 

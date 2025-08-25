@@ -1,81 +1,47 @@
 #include <iostream>
-#include <stack>
-#include <fstream>
-#include <sstream>
-#include "publisher.h"
+#include <memory>
 #include "PublisherManager.h"
-//#include "stack.h"
-using namespace std;
-
-
-//class User {
-//public:
-//	string id;
-//	string username;
-//	///string birthday;
-//	int age;
-//	double wallet;
-//
-//	User(string i, string u, int a, double w) : id(i), username(u), age(a), wallet(w) {}
-//
-//	void addToCart(Game* g) {
-//		cart.push(g);
-//	}
-//
-//	/*void printCart() {
-//		Stack<Game*> tmp = cart;
-//		cout << "User: " << username << " (wallet$" << wallet << ")" << endl;
-//		cout << "  Cart: " << endl;
-//		while (!tmp.isEmpty()) {
-//			Game* g = tmp.topValue();
-//			cout << "    -" << g->name << " ($" << g->price << ")" << endl;
-//			tmp.pop();
-//		}
-//	}*/
-//
-//private:
-//	/*Stack<Game*> cart;*/
-//};
+#include "GameManager.h"
 
 int main() {
-	
-	PublisherManager publishers;
-	publishers.loadFromFile();
-	publishers.printAll();
+    PublisherManager publishers;
+    GameManager games;
 
-	//// ===== Tao Game =====
-	//Game* zelda = new Game("G1", "The Legend of Zelda: Breath of the Wild", 59.99, "Action-Adventure", "E10+", nintendo);
-	//Game* mario = new Game("G2", "Super Mario Odyssey", 49.99, "Platformer", "E10+", nintendo);
-	//Game* gow = new Game("G3", "God of War", 39.99, "Action", "M", sony);
-	//Game* acv = new Game("G4", "Assassin's Creed Valhalla", 69.99, "Action RPG", "M", ubisoft);
+    publishers.importFromFile("publishers.txt");
+    std::cout << "=== Publishers ===" << std::endl;
+    publishers.printAll();
 
-	//// Link game vao publisher
-	//nintendo->addGame(zelda);
-	//nintendo->addGame(mario);
-	//sony->addGame(gow);
-	//ubisoft->addGame(acv);
 
-	//// ===== Tao User =====
-	//User* alice = new User("U1", "Alice", 22, 100.0);
-	//User* bob = new User("U2", "Bob", 18, 50.0);
+    games.importFromFile("games.txt", publishers);
+    std::cout << "\n=== Games ===" << std::endl;
+    games.printAll();
 
-	//// Alice them game vao gio
-	//alice->addToCart(zelda);
-	//alice->addToCart(acv);
 
-	//// Bob them game vao gio
-	//bob->addToCart(mario);
+    //Publisher* p = publishers.getPublisherAt(0);
+    //if (p) {
+    //    std::cout << "\nPublisher at index 0: " << p->getName() << std::endl;
+    //}
 
-	//// ===== Demo In Ra =====
-	//nintendo->printGames();
-	//sony->printGames();
-	//ubisoft->printGames();
 
-	//cout << "\n";
-	//alice->printCart();
-	//cout << "\n";
-	//bob->printCart();
+    //auto publisher_ptr = publishers.getPublisherByName("NINT"); 
+    //if (publisher_ptr) {
+    //    auto newGame = std::make_shared<Game>(
+    //        "N03",          // id
+    //        "EldenRing",    // name
+    //        69.99,          // price
+    //        "RPG",          // genre
+    //        "18+",          // ageRating
+    //        publisher_ptr   // Publisher
+    //    );
+    //    games.addGame(newGame.get());
+    //    publisher_ptr->addGame(newGame);
 
-	return 0;
+    //    std::cout << "\nAfter adding new game:" << std::endl;
+    //    games.printAll();
+    //}
+    //else {
+    //    std::cerr << "Publisher NINT not found!" << std::endl;
+    //}
+
+    return 0;
 }
-

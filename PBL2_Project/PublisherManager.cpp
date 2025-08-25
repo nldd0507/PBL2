@@ -1,27 +1,33 @@
 #include "PublisherManager.h"
+#include "publisher.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include "utils.h"
+//PublisherManager::~PublisherManager() {
+//	for (auto p : publishers) {
+//		delete p;
+//	}
+//	publishers.clear();
+//}
 
-PublisherManager::~PublisherManager() {
-	for (auto p : publishers) {
-		delete p;
-	}
-	publishers.clear();
-}
-void PublisherManager::addPublisher(Publisher* p) {
+void PublisherManager::addPublisher(const std::shared_ptr<Publisher>& p) {
 	publishers.push_back(p);
 }
 
-void PublisherManager::printAll() const {
-	for (auto p : publishers) {
-		if (p != nullptr) {
-			std::cout << *p;
+std::shared_ptr<Publisher> PublisherManager::getPublisherByName(const std::string& key) const {
+	if (key.size() <= 3) {
+		for (auto& p : publishers) {
+			if (p != nullptr && ( p->getSortName() == key || p->getName()==key)) {
+				return p;
+			}
 		}
 	}
+	
+	return nullptr;
 }
 
-void PublisherManager::loadFromFile(const std::string& filename) {
+void PublisherManager::importFromFile(const std::string& filename) {
 	std::ifstream in(filename);
 	if (!in) {
 		std::cerr << "Cannot open file: " << filename << std::endl;
@@ -33,14 +39,42 @@ void PublisherManager::loadFromFile(const std::string& filename) {
 		if (line.empty()) continue;
 
 		std::stringstream ss(line);
-		std::string id, name;
+		std::string id, name, sortName;
 
-		if (std::getline(ss, id, ';') && std::getline(ss, name)) {
-			Publisher* p = new Publisher(id, name);
-			addPublisher(p);
+		if (std::getline(ss, id, ';')
+			&& std::getline(ss, sortName, ';')
+			&& std::getline(ss, name)) 
+		{
+			id = utils::formatName(id);
+			sortName = utils::formatName(sortName);
+			name = utils::formatName(name);
+			addPublisher(std::make_shared<Publisher>(id, sortName, name));
 		}
 	}
 	in.close();
 }
+void PublisherManager::exportToFile(const std::string& filename) const {
+	std::ofstream out(filename);
+	if (!out) {
+		std::cerr << "Cannot open file: " << filename << std::endl;
+		return;
+	}
 
+	for (auto &p : publishers) {
+		if (p != NULL) {
+			out << p->getId() << " ; "<<p->getSortName() <<" ; " << p->getName() << std::endl;
+		}
+	}
+
+	out.close();
+	std::cout << "Data exported to " << filename << std::endl;
+}
+
+void PublisherManager::printAll() const {
+	for (auto& p : publishers) {
+		if (p != nullptr) {
+			std::cout << *p;
+		}
+	}
+}
 
