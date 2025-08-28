@@ -5,6 +5,7 @@
 Game::Game(const std::string &i,
 	const std::string &n,
 	const double &p,
+	const double &d,
 	const std::string &g,
 	const std::string &ar,
 	std::shared_ptr<Publisher> pub) 
@@ -12,19 +13,19 @@ Game::Game(const std::string &i,
 	id = i;
 	name = n;
 	price = p;
+	discount = d;
+	afterDiscount = price * (100 -discount) /100;
 	genre = g;
 	ageRating = ar;
 	publisher = pub;
 }
 std::ostream& operator <<(std::ostream& o, const Game& g) {
 	if (auto pub = g.publisher.lock()) {  
-		o << g.id << " " << g.name << " " << g.price
-			<< " " << g.genre << " " << g.ageRating
-			<< " " << pub->getSortName() << std::endl;
+		o << g.id << " | " << g.name << " | " << g.price << " | " << g.discount << " | " << g.afterDiscount << " | " << g.genre << " | " << g.ageRating
+			<< " | " << pub->getSortName() << std::endl;
 	}
 	else {
-		o << g.id << " " << g.name << " " << g.price
-			<< " " << g.genre << " " << g.ageRating
+		o << g.id << " | " << g.name << " | " << g.price << " | " << g.discount << " | " << g.afterDiscount << " | " << g.genre << " | " << g.ageRating
 			<< " [No Publisher]" << std::endl;
 	}
 	return o;

@@ -22,7 +22,9 @@ public:
 	void addPublisher(const std::shared_ptr<Publisher>& p);
 	void importFromFile(const std::string& file = "publishers.txt");
 	void exportToFile(const std::string& file = "publishers.txt") const;
-	void printAll() const;
+	void printAllPublisher() const;
+	void printPub_Games() const;
+
 };
 
 #endif

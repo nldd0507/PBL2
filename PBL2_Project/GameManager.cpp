@@ -33,22 +33,16 @@ void GameManager::importFromFile(const std::string& filename, const PublisherMan
 		if (line.empty()) continue;
 
 		std::stringstream ss(line);
-		std::string id, name, pr, genre,ageRating, pubName;
-		double price;
-
+		std::string id, name, price,discount, genre,ageRating, pubName;
 		if (std::getline(ss, id, ';')
 			&& std::getline(ss, name,';') 
-			&& std::getline(ss, pr, ';') 
-			&&  std::getline(ss, genre, ';') 
+			&& std::getline(ss, price, ';') 
+			&& std::getline(ss, discount, ';')
+			&& std::getline(ss, genre, ';') 
 			&& std::getline(ss, ageRating,';')
 			&& std::getline(ss,pubName,';'))
 		{
 
-			id = utils::formatName(id);
-			name = utils::formatName(name);
-			price = utils::string_To_Double(pr);
-			genre = utils::formatName(genre);
-			ageRating = utils::formatName(ageRating);
 			pubName = utils::formatName(pubName);
 
 			auto publisher = publishers.getPublisherByName(pubName);
@@ -56,7 +50,14 @@ void GameManager::importFromFile(const std::string& filename, const PublisherMan
 				std::cerr << "Publisher not found: " << pubName << std::endl;
 				continue;
 			}
-			auto g = std::make_shared<Game>(id, name, price, genre, ageRating, publisher);
+			auto g = std::make_shared<Game>(
+				utils::formatName(id), 
+				utils::formatName(name), 
+				utils::string_To_Double(price),
+				utils::string_To_Double(discount),
+				utils::formatName(genre), 
+				utils::formatName(ageRating), 
+				publisher);
 			//Game* g = new Game(id, name, price, genre, ageRating, publisher);
 			addGame(g.get());
 			publisher->addGame(g);
@@ -75,7 +76,7 @@ void GameManager::exportToFile(const std::string& filename) const {
 
 	for (auto p : games) {
 		if (p != NULL) {
-			out << p->getId() << " ; " << p->getName() << " ; " << p->getPrice() << " ; " << p->getGenre() << " ; " << p->getAgeRating()<<" ; " << p->getPublisher()->getName() <<" ; " << std::endl;
+			out << p->getId() << " ; " << p->getName() << " ; " << p->getPrice() << " ; "<<p->getDiscount() <<" ; " << p->getGenre() << " ; " << p->getAgeRating() << " ; " << p->getPublisher()->getName() << " ; " << std::endl;
 		}
 	}
 

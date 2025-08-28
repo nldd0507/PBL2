@@ -1,6 +1,6 @@
 #include "publisher.h"
 #include "game.h"
-
+#include <iostream>
 class Game;
 Publisher::Publisher(const std::string &i, const std::string &sN, const std::string &n) {
 	id = i;
@@ -17,3 +17,5 @@ std::ostream& operator <<(std::ostream& o, const Publisher& p) {
 void Publisher::addGame(const std::shared_ptr<Game>&g) {
 	gameList.push_back(g);
 }
+
+

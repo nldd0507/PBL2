@@ -1,8 +1,10 @@
 #include "PublisherManager.h"
 #include "publisher.h"
+#include "game.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <vector>
 #include "utils.h"
 //PublisherManager::~PublisherManager() {
 //	for (auto p : publishers) {
@@ -43,7 +45,7 @@ void PublisherManager::importFromFile(const std::string& filename) {
 
 		if (std::getline(ss, id, ';')
 			&& std::getline(ss, sortName, ';')
-			&& std::getline(ss, name)) 
+			&& std::getline(ss, name, ';'))
 		{
 			id = utils::formatName(id);
 			sortName = utils::formatName(sortName);
@@ -70,10 +72,22 @@ void PublisherManager::exportToFile(const std::string& filename) const {
 	std::cout << "Data exported to " << filename << std::endl;
 }
 
-void PublisherManager::printAll() const {
+void PublisherManager::printAllPublisher() const {
 	for (auto& p : publishers) {
 		if (p != nullptr) {
 			std::cout << *p;
+		}
+	}
+}
+
+void PublisherManager::printPub_Games() const {
+	for (auto p : publishers) {
+		std::cout << p->getName() << std::endl;
+		
+		for (auto q : p->getGames()) {
+			std::cout << "     ";
+			std::cout << *q;
+			std::cout << std::endl;
 		}
 	}
 }

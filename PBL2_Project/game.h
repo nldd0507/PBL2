@@ -8,10 +8,11 @@ class Publisher;
 class Game {
 public:
 	Game() = default;
-	Game(const std::string &i, const std::string &n,const  double &p, const std::string &g, const std::string &ar, std::shared_ptr<Publisher> pub);
+	Game(const std::string &i, const std::string &n,const  double &p, const double &d, const std::string &g, const std::string &ar, std::shared_ptr<Publisher> pub);
 
 	std::string getName() const { return name; }
 	std::string getId() const { return id; }
+	double getDiscount() const { return discount; }
 	double getPrice() const { return price; }
 	std::string getGenre() const { return genre; }
 	std::string getAgeRating() const { return ageRating; }
@@ -22,7 +23,8 @@ private:
 	std::string id;
 	std::string name;
 	double price;
-	//double discount;
+	double discount = 0;
+	double afterDiscount;
 	//  string version;
 	std::string genre;
 	std::string ageRating;

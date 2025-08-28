@@ -3,18 +3,23 @@
 #include "PublisherManager.h"
 #include "GameManager.h"
 
+using namespace std;
+
+
 int main() {
     PublisherManager publishers;
     GameManager games;
 
     publishers.importFromFile("publishers.txt");
     std::cout << "=== Publishers ===" << std::endl;
-    publishers.printAll();
-
-
     games.importFromFile("games.txt", publishers);
     std::cout << "\n=== Games ===" << std::endl;
-    games.printAll();
+
+    publishers.printPub_Games();
+
+ 
+
+    //games.printAll();
 
 
     //Publisher* p = publishers.getPublisherAt(0);

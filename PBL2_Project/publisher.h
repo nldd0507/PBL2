@@ -19,9 +19,10 @@ public:
 	std::string getName() const { return name; }
 	std::string getSortName() const { return sortName; }
 	size_t getSizeGameList() const { return gameList.size(); };
+	std::vector<std::shared_ptr<Game>> getGames() const { return gameList; }
 
 	void addGame(const std::shared_ptr<Game>&g);
-	
+
 	friend std::ostream& operator << (std::ostream& o, const Publisher& p);
 private:
 	std::string name;
@@ -29,6 +30,7 @@ private:
 	std::string id;
 	std::vector<std::shared_ptr<Game>> gameList;
 };
+
 
 
 #endif
