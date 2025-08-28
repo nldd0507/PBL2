@@ -1,5 +1,6 @@
-#include "game.h"
 #include "Utils.h"
+
+#include "game.h"
 #include "publisher.h"
 
 Game::Game(const std::string &i,

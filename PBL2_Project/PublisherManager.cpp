@@ -1,11 +1,14 @@
+#include "utils.h"
+
 #include "PublisherManager.h"
 #include "publisher.h"
 #include "game.h"
-#include <iostream>
-#include <fstream>
+
 #include <sstream>
 #include <vector>
-#include "utils.h"
+
+#include <fstream>
+#include <iostream>
 //PublisherManager::~PublisherManager() {
 //	for (auto p : publishers) {
 //		delete p;
@@ -55,6 +58,7 @@ void PublisherManager::importFromFile(const std::string& filename) {
 	}
 	in.close();
 }
+
 void PublisherManager::exportToFile(const std::string& filename) const {
 	std::ofstream out(filename);
 	if (!out) {

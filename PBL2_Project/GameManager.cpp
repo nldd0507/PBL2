@@ -1,10 +1,12 @@
-#include "GameManager.h"
-#include <iostream>
-#include <fstream>
-#include <sstream>
 #include "utils.h"
 
+#include "GameManager.h"
 #include "PublisherManager.h"
+
+#include <sstream>
+
+#include <iostream>
+#include <fstream>
 
 //GameManager::~GameManager() {
 //	games.clear();

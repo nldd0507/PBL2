@@ -1,8 +1,9 @@
 #ifndef Publisher_manager
 #define Publisher_manager
 
-#include <vector>
 #include "publisher.h"
+
+#include <vector>
 
 class PublisherManager {
 private: 

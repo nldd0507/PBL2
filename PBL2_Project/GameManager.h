@@ -1,9 +1,10 @@
 #ifndef GameManager_h
 #define GameManager_h
 
-#include <vector>
 #include "game.h"
 #include "PublisherManager.h"
+
+#include <vector>
 
 class GameManager {
 private:

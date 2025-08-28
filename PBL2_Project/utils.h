@@ -1,11 +1,16 @@
-#ifndef utils_h
+﻿#ifndef utils_h
 #define utils_h
 
-#include <string>
-#include <iomanip>
-#include <sstream>
 #include "publisher.h"
 #include "PublisherManager.h"
+
+#include <string>
+#include <sstream>
+
+#include <iostream>
+#include <chrono>
+#include <thread>
+#include <iomanip>
 namespace utils {
 	inline std::string formatName(const std::string& input) {
 		std::istringstream iss(input);
@@ -35,5 +40,26 @@ namespace utils {
 		oss << p.getSortName() << std::setw(2) << std::setfill('0') << n;
 		return oss.str();
 	}
+
+	inline void await(int durationMs = 2000, int delayMs = 100) {
+		const char spinner[] = { '|','/','-','\\' };
+		int spinnerSize = 4;
+		auto start = std::chrono::steady_clock::now();
+		while (true) {
+			for (int i = 0; i < spinnerSize; i++) {
+				std::cout << "\r" << spinner[i] << std::flush;
+				std::this_thread::sleep_for(std::chrono::milliseconds(delayMs));
+
+				auto now = std::chrono::steady_clock::now();
+				auto elapsed = std::chrono::duration_cast <std::chrono::milliseconds>(now - start).count();
+
+				if (elapsed >= durationMs) {
+					std::cout << "\r " << "\r"; 
+					return;
+				}
+			}
+		}
+	}
 } 
 #endif // !utils_h
+ 
