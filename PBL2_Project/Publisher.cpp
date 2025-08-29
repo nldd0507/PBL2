@@ -1,4 +1,5 @@
 #include "utils.h"
+#include "console_utils.h"
 #include "publisher.h"
 #include "game.h"
 
@@ -54,13 +55,16 @@ void Publisher::editGame() {
 				"0. Turn Back"
 			};
 
-			for (int i = 0; i < 6; i++) {
+			c_utils::p_task_menu("Choose your action", menuOptions, 6, 100);
+
+			/*for (int i = 0; i < 6; i++) {
 				std::cout << menuOptions[i] << std::endl;
-			}
+			}*/
 
 			int n;
 			std::cin >> n;
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // <-- Thêm ignore
+			char c;
+			while (std::cin.get(c) && c != '\n');
 
 			while (true) {
 				switch (n) {

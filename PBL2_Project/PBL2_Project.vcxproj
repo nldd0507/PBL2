@@ -130,7 +130,9 @@
     <ClCompile Include="PublisherManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="console_utils.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="GameHashMap.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="publisher.h" />
     <ClInclude Include="PublisherManager.h" />

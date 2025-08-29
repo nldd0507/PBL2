@@ -11,10 +11,18 @@
 //GameManager::~GameManager() {
 //	games.clear();
 //}
-void GameManager::addGame(Game* g) {
+void GameManager::addGame(const std::shared_ptr<Game>& g) {
 	games.push_back(g);
+	gameMap.insert(g->getId(), g);
 }
 
+std::shared_ptr<Game> GameManager::getGameById(const std::string& id) const {
+	return gameMap.get(id);
+}
+
+bool GameManager::isExist(const std::string& id) const {
+	return gameMap.isExist(id);
+}
 void GameManager::printAll() const {
 	for (auto p : games) {
 		if (p != nullptr) {
@@ -61,7 +69,7 @@ void GameManager::importFromFile(const std::string& filename, const PublisherMan
 				utils::formatName(ageRating), 
 				publisher);
 			//Game* g = new Game(id, name, price, genre, ageRating, publisher);
-			addGame(g.get());
+			addGame(g);
 			publisher->addGame(g);
 		}
 
