@@ -1,0 +1,98 @@
+# depslib dependency file v1.0
+1757246337 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\game.cpp
+	"Utils.h"
+	"game.h"
+	"publisher.h"
+
+1757246337 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\utils.h
+	"publisher.h"
+	"PublisherManager.h"
+	<string>
+	<sstream>
+	<iostream>
+	<chrono>
+	<thread>
+	<iomanip>
+
+1757246337 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\publisher.h
+	<vector>
+	<string>
+	<memory>
+	<fstream>
+	<iostream>
+
+1757246337 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\publishermanager.h
+	"publisher.h"
+	<vector>
+
+1757655530 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\game.h
+	<string>
+	<memory>
+
+1757246337 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\gamemanager.cpp
+	"utils.h"
+	"GameManager.h"
+	"PublisherManager.h"
+	<sstream>
+	<iostream>
+	<fstream>
+
+1757652272 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\gamemanager.h
+	"game.h"
+	"PublisherManager.h"
+	"GameHashMap.h"
+	<vector>
+	<string>
+	<memory>
+
+1757246337 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\gamehashmap.h
+	"game.h"
+	<string>
+	<memory>
+	<vector>
+
+1757645468 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\main.cpp
+	<iostream>
+	<memory>
+	"PublisherManager.h"
+	"GameManager.h"
+	"publisher.h"
+	"user.h"
+
+1757246337 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\publisher.cpp
+	"utils.h"
+	"console_utils.h"
+	"publisher.h"
+	"game.h"
+	<vector>
+	<string>
+	<iostream>
+
+1757246337 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\console_utils.h
+	<string>
+	<windows.h>
+	<iomanip>
+	<iostream>
+
+1757246337 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\publishermanager.cpp
+	"utils.h"
+	"PublisherManager.h"
+	"publisher.h"
+	"game.h"
+	<sstream>
+	<vector>
+	<fstream>
+	<iostream>
+
+1757656767 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\user.h
+	<bits/stdc++.h>
+	"game.h"
+	"GameManager.h"
+
+1757634691 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\user.cpp
+	<bits/stdc++.h>
+	"utils.h"
+	"game.h"
+	"GameManager.h"
+	"user.h"
+

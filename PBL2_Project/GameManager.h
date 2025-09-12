@@ -8,6 +8,7 @@
 #include <vector>
 #include <string>
 #include <memory>
+class User;
 
 class GameManager {
 private:
@@ -15,6 +16,9 @@ private:
 	GameHashMap gameMap;
 
 public:
+    // Khanh them 10:42 9/12 de test
+    // friend class User; // se dung cho purchaseGame sau ni
+
 	~GameManager() = default;
 
 	void addGame(const std::shared_ptr<Game> &g);

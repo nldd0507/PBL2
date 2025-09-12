@@ -3,14 +3,19 @@
 #include "PublisherManager.h"
 #include "GameManager.h"
 #include "publisher.h"
-
+#include "user.h"
 using namespace std;
 
 
 int main() {
+    // Khanh them
+    User us;
+    us.getInfo();
+    us.printInfo();
+
     PublisherManager publishers;
     GameManager games;
-   
+
 
     publishers.importFromFile("publishers.txt");
     Publisher* pub = publishers.getPublisherAt(0);

@@ -3,10 +3,13 @@
 
 #include <string>
 #include <memory>
-
+class User;
 class Publisher;
 class Game {
 public:
+    friend class User;
+
+
 	Game() = default;
 	Game(const std::string &i, const std::string &n,const  double &p, const double &d, const std::string &g, const std::string &ar, std::shared_ptr<Publisher> pub);
 
@@ -36,7 +39,7 @@ private:
 	std::string ageRating;
 	//  Stack<string> reviews;
 	//  Stack<float> ratings;
-	std::weak_ptr<Publisher> publisher;
+	std::weak_ptr<Publisher> publisher; // cho ni Khanh chua hieu: game chi thuoc 1 Publisher duy nhat thoi chu ? (don gian cho khoe)
 };
 
 #endif

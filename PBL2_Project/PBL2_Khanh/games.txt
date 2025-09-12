@@ -1,0 +1,32 @@
+EA1; FIFA 23; 59.99; 10; Sports; E; EA;
+EA2; NBA 2K23; 59.99; 15; Sports; E; EA;
+
+UB1; Assassin's Creed Valhalla; 69.99; 20; Action; M; UB;
+UB2; Watch Dogs Legion; 69.99; 25; Action; M; UB;
+
+SE1; Final Fantasy VII Remake; 49.99; 30; RPG; T; SE;
+SE2; Kingdom Hearts III; 49.99; 35; RPG; T; SE;
+
+AC1; Call of Duty Modern Warfare; 79.99; 10; FPS; M; AC;
+AC2; Call of Duty Black Ops; 79.99; 25; FPS; M; AC;
+
+CD1; Cyberpunk 2077; 59.99; 15; RPG; M; CD;
+CD2; The Witcher 3; 59.99; 40; RPG; M; CD;
+
+NV1; Control; 39.99; 30; Action; M; NV;
+NV2; Control 2; 39.99; 10; Action; M; NV;
+
+BM1; Tekken 7; 49.99; 35; Fighting; T; BM;
+BM2; SoulCalibur VI; 49.99; 25; Fighting; T; BM;
+
+NC1; Lineage 2; 29.99; 40; MMORPG; T; NC;
+NC2; Blade & Soul; 29.99; 30; MMORPG; T; NC;
+
+BL1; Overwatch 2; 59.99; 20; FPS; T; BL;
+BL2; Diablo IV; 59.99; 15; RPG; M; BL;
+
+MS1; Halo Infinite; 69.99; 10; FPS; M; MS;
+MS2; Forza Horizon 5; 69.99; 20; Racing; E; MS;
+
+FR1; Elden Ring; 69.99; 15; RPG; M; FR;
+FR2; Dark Souls; 59.99; 35; RPG; M; FR;
