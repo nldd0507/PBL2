@@ -8,17 +8,17 @@
 #include <iostream>
 
 namespace c_utils {
-	inline void p_center(const std::string& title, int intro_width) {
-		int title_padding = (intro_width - title.length()) / 2;
+	inline void p_center(const std::string& title, size_t intro_width) {
+		size_t title_padding = (intro_width - title.length()) / 2;
 		std::cout << "*" << std::string(title_padding - 1, ' ');
 		std::cout << title;
 		std::cout << std::string(intro_width - 1 - title_padding - title.length(), ' ') << "*" << std::endl;
 	}
 
-    inline void p_task_menu(const std::string& title, const std::string task[], int n, int width) {
+    inline void p_task_menu(const std::string& title, const std::string task[], int n, size_t width) {
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-        int title_padding = (width - title.length()) / 2;
+        size_t title_padding = (width - title.length()) / 2;
 
         std::cout << std::string(width, '*') << std::endl;
 

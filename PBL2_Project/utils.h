@@ -2,7 +2,6 @@
 #define utils_h
 
 #include "publisher.h"
-#include "PublisherManager.h"
 
 #include <string>
 #include <sstream>
@@ -40,7 +39,7 @@ namespace utils {
 		oss << p.getSortName() << std::setw(2) << std::setfill('0') << n;
 		return oss.str();
 	}
-
+	//Rotation await
 	inline void await(int durationMs = 2000, int delayMs = 100) {
 		const char spinner[] = { '|','/','-','\\' };
 		int spinnerSize = 4;
@@ -60,6 +59,30 @@ namespace utils {
 			}
 		}
 	}
+	//Dot animation await
+	inline void dotAnimation(const std::string& message, int cycles = 3, int delayMs = 200) {
+		using namespace std::chrono_literals;
+
+		std::cout << message;
+		std::cout.flush();
+
+		for (int i = 0; i < cycles; ++i) {
+			for (int dots = 0; dots <= 3; ++dots) {
+				std::cout << "\r" << message;
+				for (int j = 0; j < dots; ++j)
+					std::cout << '.';
+				std::cout << "   ";
+				std::cout.flush();
+
+				if (dots == 0) std::this_thread::sleep_for(std::chrono::milliseconds(delayMs * 2));
+				else std::this_thread::sleep_for(std::chrono::milliseconds(delayMs));
+			}
+		}
+
+		std::cout << "\r" << message << "...   \n";
+
+	}
+
 } 
 #endif // !utils_h
  

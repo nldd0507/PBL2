@@ -1,0 +1,5 @@
+id:P3
+sortName:SE
+name:Square Enix
+password:abd1
+games:SE1;SE2;

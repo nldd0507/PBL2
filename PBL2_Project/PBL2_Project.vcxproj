@@ -124,24 +124,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menu.cpp" />
     <ClCompile Include="Publisher.cpp" />
-    <ClCompile Include="PublisherManager.cpp" />
+    <ClCompile Include="user.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="console_utils.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="GameHashMap.h" />
-    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="publisher.h" />
-    <ClInclude Include="PublisherManager.h" />
     <ClInclude Include="stack.h" />
+    <ClInclude Include="user.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="games.txt" />
-    <Text Include="publishers.txt" />
+    <Text Include="data\publishers\publishers.txt" />
+    <Text Include="publishers_out.txt" />
+    <Text Include="Temp.txt" />
     <Text Include="users.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

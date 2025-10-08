@@ -1,0 +1,5 @@
+id:P11
+sortName:FR
+name:FromSoftware
+password:null
+games:FR1;FR2;

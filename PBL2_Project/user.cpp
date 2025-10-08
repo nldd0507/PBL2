@@ -1,7 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
 #include "utils.h"
 #include "game.h"
-#include "GameManager.h"
 #include "user.h"
 using namespace std;
 
@@ -82,7 +81,8 @@ void User::addToCart(const Game &chosenGame) {
     cart.push_back(chosenGame);
 }
 
-bool User::isInCart(const string &nameGame) const {
+// 13:43 9/2 Dieu chinh lai kieu du lieu: bool -> int
+int User::isInCart(const string &nameGame) const {
     int id_cart = 0;
     for(Game g : cart) {
         if(g.name == nameGame) return id_cart; // Neu nam trong thi return chi so trong cart --> Tien trong viec xoa game from Cart (ham ben duoi)
@@ -129,7 +129,7 @@ void User::addToLib(const Game &chosenGame) { // add when complete purchasing ga
     cout << "  Notification: Install game " << chosenGame.name << " successfully\n";
 }
 
-bool User::isInLib(const string &nameGame) const {
+int User::isInLib(const string &nameGame) const {
     int id_lib = 0;
     for(Game g : lib) {
         if(g.name == nameGame) return id_lib;
