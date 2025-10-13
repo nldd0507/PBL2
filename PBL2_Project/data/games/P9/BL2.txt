@@ -1,0 +1,7 @@
+id:BL2
+name:Diablo IV
+price:59.99
+discount:15
+genre:RPG
+ageRating:M
+publisher:Blizzard

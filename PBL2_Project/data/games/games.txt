@@ -22,3 +22,4 @@ MS2;Forza Horizon 5;69.99;20;Racing;E;Microsoft Studios;
 FR1;Elden Ring;69.99;15;RPG;M;FromSoftware;
 FR2;Dark Souls;59.99;35;RPG;M;FromSoftware;
 EA03;Neuman;54.93;10;RPG;M;Electronic Arts;
+EA04;rivo;34;15;Fighting;M;Electronic Arts;

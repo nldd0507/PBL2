@@ -1,0 +1,7 @@
+id:SE2
+name:Kingdom Hearts III
+price:49.99
+discount:35
+genre:RPG
+ageRating:T
+publisher:Square Enix

@@ -1,3 +1,4 @@
+#include <filesystem>
 #include "Utils.h"
 
 #include "game.h"
@@ -15,7 +16,7 @@ Game::Game(const std::string &i,
 	: id(i), name(n), price(p), discount(d), genre(g), ageRating(ar), publisher(pub){
 	afterDiscount = price * (100 -discount) /100;
 	allGames.push_back(this);
-
+	//this->saveGameDetail();
 }
 
 Game::~Game() {
@@ -128,6 +129,35 @@ void Game::saveAllGamesSummary(const std::string& filename) {
 	//std::cout << "Data exported to " << filename << std::endl;
 }
 
+void Game::saveGameDetail() const {
+	std::cout << "Tao vua moi ghi file day cu" << std::endl;
+	std::cin.get();
+
+	namespace fs = std::filesystem;
+
+	std::string dir = "data/games/" + publisher->getId();
+	std::string path = dir + "/" + id + ".txt"; 
+
+
+	fs::create_directories(dir);
+
+	std::ofstream fout(path);
+	if (!fout.is_open()) {
+		std::cerr << "Error: cannot write publisher file: " << path << "\n";
+		return;
+	}
+
+	fout << "id:" << id << "\n";
+	fout << "name:" << name << "\n";
+	fout << "price:" << price << "\n";
+	fout << "discount:" << discount << "\n";
+	fout << "genre:" << genre << "\n";
+	fout << "ageRating:" << ageRating << "\n";
+	fout << "publisher:" << publisher->getName() << "\n";
+	fout.close();
+
+	saveAllGamesSummary();
+}
 
 
 

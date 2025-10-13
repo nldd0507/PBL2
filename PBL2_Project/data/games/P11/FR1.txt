@@ -1,0 +1,7 @@
+id:FR1
+name:Elden Ring
+price:69.99
+discount:15
+genre:RPG
+ageRating:M
+publisher:FromSoftware

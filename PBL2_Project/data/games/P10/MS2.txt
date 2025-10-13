@@ -1,0 +1,7 @@
+id:MS2
+name:Forza Horizon 5
+price:69.99
+discount:20
+genre:Racing
+ageRating:E
+publisher:Microsoft Studios

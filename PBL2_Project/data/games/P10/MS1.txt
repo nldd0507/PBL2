@@ -1,0 +1,7 @@
+id:MS1
+name:Halo Infinite
+price:69.99
+discount:10
+genre:FPS
+ageRating:M
+publisher:Microsoft Studios

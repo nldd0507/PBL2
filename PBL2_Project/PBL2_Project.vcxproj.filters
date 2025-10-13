@@ -19,6 +19,12 @@
     <Filter Include="TestFile">
       <UniqueIdentifier>{3ec72ae4-33f7-4d89-b6d4-e875b672981d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data\publishers">
+      <UniqueIdentifier>{fe7a5299-b8eb-4153-a6bb-c41aeb41d575}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\games">
+      <UniqueIdentifier>{08ab4ad1-39f1-4b64-9498-97ae36729d54}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -70,9 +76,47 @@
     <Text Include="publishers_out.txt">
       <Filter>TestFile</Filter>
     </Text>
-    <Text Include="Temp.txt" />
+    <Text Include="data\publishers\P1.txt">
+      <Filter>Data\publishers</Filter>
+    </Text>
+    <Text Include="data\publishers\P2.txt">
+      <Filter>Data\publishers</Filter>
+    </Text>
+    <Text Include="data\publishers\P3.txt">
+      <Filter>Data\publishers</Filter>
+    </Text>
+    <Text Include="data\publishers\P4.txt">
+      <Filter>Data\publishers</Filter>
+    </Text>
+    <Text Include="data\publishers\P5.txt">
+      <Filter>Data\publishers</Filter>
+    </Text>
+    <Text Include="data\publishers\P6.txt">
+      <Filter>Data\publishers</Filter>
+    </Text>
+    <Text Include="data\publishers\P7.txt">
+      <Filter>Data\publishers</Filter>
+    </Text>
+    <Text Include="data\publishers\P8.txt">
+      <Filter>Data\publishers</Filter>
+    </Text>
+    <Text Include="data\publishers\P9.txt">
+      <Filter>Data\publishers</Filter>
+    </Text>
+    <Text Include="data\publishers\P10.txt">
+      <Filter>Data\publishers</Filter>
+    </Text>
+    <Text Include="data\publishers\P11.txt">
+      <Filter>Data\publishers</Filter>
+    </Text>
     <Text Include="data\publishers\publishers.txt">
-      <Filter>Data</Filter>
+      <Filter>Data\publishers</Filter>
+    </Text>
+    <Text Include="Temp.txt">
+      <Filter>TestFile</Filter>
+    </Text>
+    <Text Include="data\games\games.txt">
+      <Filter>Data\games</Filter>
     </Text>
   </ItemGroup>
 </Project>

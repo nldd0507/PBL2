@@ -1,6 +1,6 @@
 ID;Short Name;Name;Password
 P1;EA;Electronic Arts;abc1;
-P2;UB;Ubisoft;null;
+P2;UB;Ubisoft;abcd1;
 P3;SE;Square Enix;abd1;
 P4;AC;Activision;null;
 P5;CD;CD Projekt;null;

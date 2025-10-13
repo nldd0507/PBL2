@@ -113,7 +113,8 @@ void Menu::handlePublisherMenu(Publisher *publisher) {
                 cin.get();
             }
             else {
-                utils::dotAnimation("Too many failed attempts. Logging out", 3, 150);
+                utils::dotAnimation("Too many failed attempts. Logging out", 3, 200);
+                break;
             }
         }
         else if (choose == "3") {
@@ -122,7 +123,8 @@ void Menu::handlePublisherMenu(Publisher *publisher) {
                 cin.get();
             }
             else {
-                utils::dotAnimation("Too many failed attempts. Logging out", 3, 150);
+                utils::dotAnimation("Too many failed attempts. Logging out", 3, 200);
+                break;
             }
         }
         else if (choose == "4") {
@@ -131,16 +133,20 @@ void Menu::handlePublisherMenu(Publisher *publisher) {
                 cin.get();
             }
             else {
-                utils::dotAnimation("Too many failed attempts. Logging out", 3, 150);
+                utils::dotAnimation("Too many failed attempts. Logging out", 3, 200);
+                break;
             }
         }
         else if (choose == "5") {
-            if (publisher->changePassword()) {
+            int c = publisher->changePassword();
+            if (c==1 || c==2) {
                 cin.get();
             }
-            else {
-                utils::dotAnimation("Too many failed attempts. Logging out", 3, 150);
+            else if(c==0){
+                utils::dotAnimation("Too many failed attempts. Logging out", 3, 200);
+                break;
             }
+
         }
         else if (choose == "6") {
            // publisher->loadFromFile();
@@ -148,7 +154,8 @@ void Menu::handlePublisherMenu(Publisher *publisher) {
         }
         else if (choose == "0") {
             
-            utils::dotAnimation("Turning back", 3, 150);
+            utils::dotAnimation("Turning back", 3, 200);
+            break;
         }
         else {
             cout << "Error.\n";

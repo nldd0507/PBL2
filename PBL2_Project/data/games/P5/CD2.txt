@@ -1,0 +1,7 @@
+id:CD2
+name:The Witcher 3
+price:59.99
+discount:40
+genre:RPG
+ageRating:M
+publisher:CD Projekt

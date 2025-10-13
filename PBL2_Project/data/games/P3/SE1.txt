@@ -1,0 +1,7 @@
+id:SE1
+name:Final Fantasy VII Remake
+price:49.99
+discount:30
+genre:RPG
+ageRating:T
+publisher:Square Enix

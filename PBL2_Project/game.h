@@ -22,10 +22,7 @@ public:
 	double getDiscount() const { return discount; }
 	std::string getGenre() const { return genre; }
 	std::string getAgeRating() const { return ageRating; }
-
-	const Publisher* getPublisher() const {
-		return publisher ; 
-	}
+	const Publisher* getPublisher() const { return publisher ; }
 
 	//setter
 	void setName(const std::string& n) { name = n; }
@@ -43,6 +40,8 @@ public:
 	static void printAllGames();
 	static void loadAllGamesSummary(const std::string& filename = "games.txt");
 	static void saveAllGamesSummary(const std::string& filename = "games.txt");
+
+	void saveGameDetail() const;
 private:
 
 	static std::vector<Game*> allGames;

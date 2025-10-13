@@ -24,7 +24,6 @@ int main() {
     ///* --------------  */
 
 
-    // B1. Đọc danh sách publisher
     /*Publisher::importFromFile();
     Publisher* pub = Publisher::getPublisherByName("Square Enix");
     delete pub;

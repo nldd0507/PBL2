@@ -1,0 +1,7 @@
+id:BL1
+name:Overwatch 2
+price:59.99
+discount:20
+genre:FPS
+ageRating:T
+publisher:Blizzard

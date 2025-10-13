@@ -1,0 +1,7 @@
+id:NC1
+name:Lineage 2
+price:29.99
+discount:40
+genre:MMORPG
+ageRating:T
+publisher:NCSoft

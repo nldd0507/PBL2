@@ -1,0 +1,7 @@
+id:EA03
+name:Neuman
+price:54.93
+discount:10
+genre:RPG
+ageRating:M
+publisher:Electronic Arts

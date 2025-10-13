@@ -1,0 +1,7 @@
+id:FR2
+name:Dark Souls
+price:59.99
+discount:35
+genre:RPG
+ageRating:M
+publisher:FromSoftware

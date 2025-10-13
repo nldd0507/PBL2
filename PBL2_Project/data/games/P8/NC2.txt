@@ -1,0 +1,7 @@
+id:NC2
+name:Blade & Soul
+price:29.99
+discount:30
+genre:MMORPG
+ageRating:T
+publisher:NCSoft

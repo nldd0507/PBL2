@@ -70,6 +70,7 @@ void Publisher::addGame() {
     this->savePublisherDetail();
 
     Game::saveAllGamesSummary();
+    newGame->saveGameDetail();
     //TODO : Them saveGameDetail;
     utils::await(1000); 
     std::cout << "Game \"" << name << "\" added successfully!\n";
@@ -408,16 +409,16 @@ bool Publisher::confirmPassword() {
         }
     }
 
-    std::cout << "Too many failed attempts.Logging out.\n";
+    //std::cout << "Too many failed attempts.Logging out.\n";
     return false;
 }
 
-bool Publisher::changePassword() {
+int Publisher::changePassword() {
     std::string oldPass, newPass, confirmPass;
     int attempts = 0;
 
     while (attempts < 3) {
-        std::cout << "\nEnter current password: ";
+        std::cout << "Enter current password: ";
         std::getline(std::cin, oldPass);
 
         if (oldPass == password) {
@@ -426,7 +427,7 @@ bool Publisher::changePassword() {
 
             if (newPass.empty()) {
                 std::cout << "Password cannot be empty.\n";
-                return false;
+                return 2;
             }
 
             std::cout << "Confirm new password: ";
@@ -434,13 +435,13 @@ bool Publisher::changePassword() {
 
             if (newPass != confirmPass) {
                 std::cout << "Passwords do not match.\n";
-                return false;
+                return 2;
             }
 
             password = newPass;
             savePublisherDetail();
             std::cout << "Password changed successfully!\n";
-            return true;
+            return 1;
         }
         else {
             attempts++;
@@ -448,8 +449,8 @@ bool Publisher::changePassword() {
         }
     }
 
-    std::cout << "Too many failed attempts. Logging out...\n";
-    return false; // logout trigger
+    //std::cout << "Too many failed attempts. Logging out...\n";
+    return 0; // logout trigger
 }
 
 
