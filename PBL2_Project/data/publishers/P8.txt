@@ -1,0 +1,5 @@
+id:P8
+sortName:NC
+name:NCSoft
+password:null
+games:NC1;NC2;

@@ -1,9 +1,8 @@
 #ifndef USERS_H
 #define USERS_H
 
-#include<bits/stdc++.h>
+#include <iostream>
 #include "game.h"
-#include"GameManager.h"
 using namespace std;
 
 class User {
@@ -36,12 +35,12 @@ public:
     void removeCart(const Game &removeGame); // xoa game theo ten or id ?
     void clearCart(); // khong duoc de const vi const thi khong the clear cart
     void printCart() const;
-    bool isInCart(const string &nameGame) const;
+    int isInCart(const string &nameGame) const;
 
     // Library
     void addToLib(const Game &chosenGame);
     void uninstallGame(const Game &chosenGame);
-    bool isInLib(const string &nameGame) const; // mean: game da duoc mua va tai ve
+    int isInLib(const string &nameGame) const; // mean: game da duoc mua va tai ve
     void printLib() const;
 
     // Con cac tinh nang da len y tuong (se lam neu co the): mua all game from cart, kiem tra & phan loai game voi do tuoi user

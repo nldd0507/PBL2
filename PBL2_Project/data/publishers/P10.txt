@@ -1,0 +1,5 @@
+id:P10
+sortName:MS
+name:Microsoft Studios
+password:null
+games:MS1;MS2;

@@ -93,5 +93,3 @@ void GameManager::exportToFile(const std::string& filename) const {
 	out.close();
 	std::cout << "Data exported to " << filename << std::endl;
 }
-
-

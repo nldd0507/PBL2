@@ -1,0 +1,5 @@
+id:P9
+sortName:BL
+name:Blizzard
+password:null
+games:BL1;BL2;

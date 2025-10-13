@@ -16,6 +16,9 @@
     <Filter Include="Data">
       <UniqueIdentifier>{a56a102f-7287-4470-91c9-ba5628e0da30}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TestFile">
+      <UniqueIdentifier>{3ec72ae4-33f7-4d89-b6d4-e875b672981d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -24,13 +27,13 @@
     <ClCompile Include="Publisher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PublisherManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameManager.cpp">
+    <ClCompile Include="user.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,16 +44,10 @@
     <ClInclude Include="publisher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PublisherManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameHashMap.h">
@@ -59,15 +56,22 @@
     <ClInclude Include="console_utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="user.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="users.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="publishers.txt">
-      <Filter>Data</Filter>
+    <Text Include="publishers_out.txt">
+      <Filter>TestFile</Filter>
     </Text>
-    <Text Include="games.txt">
+    <Text Include="Temp.txt" />
+    <Text Include="data\publishers\publishers.txt">
       <Filter>Data</Filter>
     </Text>
   </ItemGroup>

@@ -1,0 +1,12 @@
+ID;Short Name;Name;Password
+P1;EA;Electronic Arts;abc1;
+P2;UB;Ubisoft;null;
+P3;SE;Square Enix;abd1;
+P4;AC;Activision;null;
+P5;CD;CD Projekt;null;
+P6;NV;Nvidia Games;null;
+P7;BN;Bandai Namco;null;
+P8;NC;NCSoft;null;
+P9;BL;Blizzard;null;
+P10;MS;Microsoft Studios;null;
+P11;FR;FromSoftware;null;

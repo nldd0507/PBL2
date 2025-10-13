@@ -1,0 +1,11 @@
+P1 ; EA ; Electronic Arts
+P2 ; UB ; Ubisoft
+P3 ; SE ; Square Enix
+P4 ; AC ; Activision
+P5 ; CD ; CD Projekt
+P6 ; NV ; Nvidia Games
+P7 ; BN ; Bandai Namco
+P8 ; NC ; NCSoft
+P9 ; BL ; Blizzard
+P10 ; MS ; Microsoft Studios
+P11 ; FR ; FromSoftware

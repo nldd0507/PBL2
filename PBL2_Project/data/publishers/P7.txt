@@ -1,0 +1,5 @@
+id:P7
+sortName:BN
+name:Bandai Namco
+password:null
+games:BN1;BN2;
