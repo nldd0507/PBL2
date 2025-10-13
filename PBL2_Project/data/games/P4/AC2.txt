@@ -1,0 +1,7 @@
+id:AC2
+name:Call of Duty Black Ops
+price:79.99
+discount:25
+genre:FPS
+ageRating:M
+publisher:Activision

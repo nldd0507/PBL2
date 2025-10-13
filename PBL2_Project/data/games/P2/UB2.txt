@@ -1,0 +1,7 @@
+id:UB2
+name:Watch Dogs Legion
+price:69.99
+discount:25
+genre:Action
+ageRating:M
+publisher:Ubisoft

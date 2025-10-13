@@ -1,0 +1,7 @@
+id:EA2
+name:NBA 2K23
+price:59.99
+discount:15
+genre:Sports
+ageRating:E
+publisher:Electronic Arts

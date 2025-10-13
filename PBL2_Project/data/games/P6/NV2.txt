@@ -1,0 +1,7 @@
+id:NV2
+name:Control 2
+price:39.99
+discount:10
+genre:Action
+ageRating:M
+publisher:Nvidia Games

@@ -1,0 +1,7 @@
+id:EA1
+name:FIFA 23
+price:59.99
+discount:10
+genre:Sports
+ageRating:E
+publisher:Electronic Arts

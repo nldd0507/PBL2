@@ -1,0 +1,7 @@
+id:NV1
+name:Control
+price:39.99
+discount:30
+genre:Action
+ageRating:M
+publisher:Nvidia Games

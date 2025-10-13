@@ -1,0 +1,7 @@
+id:AC1
+name:Call of Duty Modern Warfare
+price:79.99
+discount:10
+genre:FPS
+ageRating:M
+publisher:Activision

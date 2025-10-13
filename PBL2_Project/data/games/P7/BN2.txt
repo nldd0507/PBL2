@@ -1,0 +1,7 @@
+id:BN2
+name:SoulCalibur VI
+price:49.99
+discount:25
+genre:Fighting
+ageRating:T
+publisher:Bandai Namco

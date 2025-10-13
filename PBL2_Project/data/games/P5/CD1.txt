@@ -1,0 +1,7 @@
+id:CD1
+name:Cyberpunk 2077
+price:59.99
+discount:15
+genre:RPG
+ageRating:M
+publisher:CD Projekt

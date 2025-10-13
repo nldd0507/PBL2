@@ -27,7 +27,7 @@ public:
 	void addGame(Game *g);
 	void editGame();
 	void deleteGame();
-	bool changePassword();
+	int changePassword();
 	friend std::ostream& operator << (std::ostream& o, const Publisher& p);
 
 	//Static Method (PublisherManager merge)

@@ -1,5 +1,5 @@
 id:P2
 sortName:UB
 name:Ubisoft
-password:null
+password:abcd1
 games:UB1;UB2;

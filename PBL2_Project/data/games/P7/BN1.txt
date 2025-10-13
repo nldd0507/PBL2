@@ -1,0 +1,7 @@
+id:BN1
+name:Tekken 7
+price:49.99
+discount:35
+genre:Fighting
+ageRating:T
+publisher:Bandai Namco

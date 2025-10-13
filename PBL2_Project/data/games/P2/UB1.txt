@@ -1,0 +1,7 @@
+id:UB1
+name:Assassin's Creed Valhalla
+price:69.99
+discount:20
+genre:Action
+ageRating:M
+publisher:Ubisoft

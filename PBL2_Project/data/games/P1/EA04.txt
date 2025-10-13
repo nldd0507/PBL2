@@ -1,0 +1,7 @@
+id:EA04
+name:rivo
+price:34
+discount:15
+genre:Fighting
+ageRating:M
+publisher:Electronic Arts
