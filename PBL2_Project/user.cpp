@@ -1,167 +1,313 @@
-#include <iostream>
-#include "utils.h"
-#include "game.h"
 #include "user.h"
+#include "game.h"
+#include "utils.h"
+#include "console_utils.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <string>
+
 using namespace std;
 
-User::User(int id, const string &name, int age, double wallet) : id(id), name(name), age(age), wallet(wallet) {}
+vector<User*> User::allUsers;
 
-istream &operator >>(istream &in, User &user) {
-    in >> user.id;
-    in >> user.name;
-    in >> user.age;
-    in >> user.wallet;
-    return in;
-}
+/*User::User(const string& username, const string& password,
+           const string& name, int age, double wallet)
+    : username(username), password(password),
+      name(name), age(age), wallet(wallet) {}
 
-ostream &operator <<(ostream &out, const User &user) {
-    out << "===  User Information ===\n";
-    out << "ID: " << user.id << '\n';
-    out << "Name: " << user.name << '\n';
-    out << "Age: " << user.age << '\n';
-    out << "Wallet: $" << user.wallet << '\n';
-    out << "Games in cart: " << user.cart.size() << '\n';
-    out << "Games owned: " << user.lib.size() << '\n';
-    return out;
-}
+User::~User() {}*/
 
+// ========== BASIC INFO ==========
 void User::getInfo() {
     cout << "-- Fill in user's information --\n";
-    cout << "- ID: "; cin >> id;
-    cout << "- Name: "; cin >> name;
-    cout << "- Age: "; cin >> age;
-    cout << '\n';
-    wallet = 0;
+    cout << "- Username: ";
+    getline(cin, username);
+    cout << "- Password: ";
+    getline(cin, password);
+    cout << "- Name: ";
+    getline(cin, name);
+    cout << "- Age: ";
+    cin >> age;
+    cin.ignore();
+    wallet = 0.0;
 }
 
 void User::printInfo() const {
-    cout << "===  User Information ===\n";
-    cout << "- ID: " << id << '\n';
-    cout << "- Name: " << name << '\n';
-    cout << "- Age: " << age << '\n';
-    cout << "- Wallet: $" << wallet << '\n';
-    cout << "- Games in cart: " << cart.size() << '\n';
-    cout << "- Games owned: " << lib.size() << '\n';
-    cout << '\n';
+    cout << "=== User Information ===\n";
+    cout << "Username: " << username << "\n";
+    cout << "Name: " << name << "\n";
+    cout << "Age: " << age << "\n";
+    cout << "Wallet: $" << wallet << "\n";
+    cout << "Games in cart: " << cart.size() << "\n";
+    cout << "Games owned: " << lib.size() << "\n\n";
 }
 
+// ========== MONEY MANAGEMENT ==========
 void User::addMoney(double amount) {
-    cout << "  Notification:   Successfull transaction!\n";
-    cout << "- Transaction Amount: +" << amount << " $\n";
-    cout << "- Current Balance: " << wallet << " $\n\n";
-}
-
-bool User::enoughMoney(const double &priceGame) const { // tra ve bool roi add vao thu vien
-//    if(walllet >= priceGame) {
-//        cout << "   Succesfully Payment! This game is added to your library!\n";
-//        wallet -= priceGame;
-//        cout << "- Transaction Amount: -" << priceGame << " $\n";
-//        cout << "- Current Balance: " << wallet << " $\n\n";
-//    } else {
-//        cout << "   "
-//    }
-    // Co the tbao thanh cong hay khong se thong bao trong purchaseGame --> nen chi viec return 0 hoac 1 thoi
-    return wallet >= priceGame;
-}
-
-void User::addToCart(const Game &chosenGame) {
-    // Kiem tra game da co trong lib truoc
-//    if(isInLib(chosenGame.name) != -1) {
-//        cout << "  Notification: Game " << chosenGame.name << " is already on your library!\n";
-//        return;
-//    }
-
-    // Kiem tra da them game vao truoc do chua
-    if(isInCart(chosenGame.name)  != -1) { // chi can kiem tra ten game la duoc roi
-        cout << "  Notification: Game " << chosenGame.name << " is already on your cart!\n"; /* Dang lam ngang day 10:32 9/12 truoc khi di day*/
+    if (amount <= 0) {
+        cout << "Invalid amount.\n";
         return;
     }
 
+    wallet += amount;
+    cout << "  Notification: Successful transaction!\n";
+    cout << "- Transaction Amount: +" << amount << " $\n";
+    cout << "- Current Balance: " << wallet << " $\n\n";
+
+    saveUserDetail();
+    saveAllUsersSummary();
+}
+
+bool User::enoughMoney(const double& priceGame) const {
+    return wallet >= priceGame;
+}
+
+// ========== CART MANAGEMENT ==========
+void User::addToCart(const Game& chosenGame) {
+    if (isInCart(chosenGame.name) != -1) {
+        cout << "  Notification: Game " << chosenGame.name
+             << " is already on your cart!\n";
+        return;
+    }
     cout << "  Notification: Successfully adding game to cart!\n";
     cart.push_back(chosenGame);
 }
 
-// 13:43 9/2 Dieu chinh lai kieu du lieu: bool -> int
-int User::isInCart(const string &nameGame) const {
-    int id_cart = 0;
-    for(Game g : cart) {
-        if(g.name == nameGame) return id_cart; // Neu nam trong thi return chi so trong cart --> Tien trong viec xoa game from Cart (ham ben duoi)
-        id_cart++;
-    }
-    return -1; // not found
+int User::isInCart(const string& nameGame) const {
+    for (int i = 0; i < (int)cart.size(); ++i)
+        if (cart[i].name == nameGame) return i;
+    return -1;
 }
 
-void User::removeCart(const Game &removeGame) {
+void User::removeCart(const Game& removeGame) {
     int idRemove = isInCart(removeGame.name);
-    if(idRemove != -1) { // Neu tim thay ten game trong cart
+    if (idRemove != -1) {
         cart.erase(cart.begin() + idRemove);
-        cout << "  Notification: Successfully erasing game from cart!\n"; // can thay game bang ten cho all notification
+        cout << "  Notification: Successfully erasing game from cart!\n";
     } else {
-        cout << "  Notification: Failed erase game because it don't exist in cart!\n";
+        cout << "  Notification: Failed erase game because it doesn't exist in cart!\n";
     }
 }
 
 void User::clearCart() {
-    cout << "  Warning: This activity will erase all game of your cart!\n";
-    cout << "  If you still want to erase, type Y or type N to stop: [Y/N] ";
-    char choice; cin >> choice;
-    if(choice == 'Y') cart.clear();
-     else {
-        cout << "  Notification: Stop erase data successfully!\n";
-     }
+    cout << "  Warning: This will erase all games from your cart!\n";
+    cout << "  Confirm [Y/N]: ";
+    char choice; cin >> choice; cin.ignore();
+    if (choice == 'Y' || choice == 'y') {
+        cart.clear();
+        cout << "  All games cleared.\n";
+    } else {
+        cout << "  Cancelled.\n";
+    }
 }
 
-void User::printCart() const { // Nen print theo dang bang o vuong --> Se update sau nay
-    for(Game g : cart) {
+void User::printCart() const {
+    if (cart.empty()) {
+        cout << "  Your cart is empty.\n";
+        return;
+    }
+    for (const auto& g : cart) {
         cout << "  === Game Specs ===\n";
-        cout << "ID: " << g.id << '\n';
-        cout << "Name: " << g.name << '\n';
-        cout << "Price (after discount): " << g.afterDiscount << '\n';
-        cout << "Genre: " << g.genre << '\n';
-        cout << "Age Rating: " << g.ageRating << '\n';
-        //cout << "Publisher: " << g.publisher << '\n'; // con check hoi y kien tu Dieu
-        cout << '\n';
+        cout << "ID: " << g.id << "\n";
+        cout << "Name: " << g.name << "\n";
+        cout << "Price (after discount): " << g.getAfterDiscount() << "\n";
+        cout << "Genre: " << g.genre << "\n";
+        cout << "Age Rating: " << g.ageRating << "\n\n";
     }
 }
 
-void User::addToLib(const Game &chosenGame) { // add when complete purchasing game (khi mua game se check co game trong lib truoc chua --> nen k can check lai
+// ========== LIBRARY MANAGEMENT ==========
+void User::addToLib(const Game& chosenGame) {
     lib.push_back(chosenGame);
-    cout << "  Notification: Install game " << chosenGame.name << " successfully\n";
+    cout << "  Notification: Installed game " << chosenGame.name << " successfully\n";
 }
 
-int User::isInLib(const string &nameGame) const {
-    int id_lib = 0;
-    for(Game g : lib) {
-        if(g.name == nameGame) return id_lib;
-        id_lib++;
-    }
+int User::isInLib(const string& nameGame) const {
+    for (int i = 0; i < (int)lib.size(); ++i)
+        if (lib[i].name == nameGame) return i;
     return -1;
 }
 
-void User::uninstallGame(const Game &chosenGame) {
+void User::uninstallGame(const Game& chosenGame) {
     int idUninstall = isInLib(chosenGame.name);
-    if(idUninstall != -1) {
+    if (idUninstall != -1) {
         lib.erase(lib.begin() + idUninstall);
-        cout << "  Notification: Uninstall game " << chosenGame.name << " from library successfully!\n";
+        cout << "  Notification: Uninstall game " << chosenGame.name << " successfully!\n";
     } else {
-        cout << "  Notification: Failed uninstall game because it dont't exist in library!\n";
+        cout << "  Notification: Game not found in your library!\n";
     }
 }
 
 void User::printLib() const {
-    cout << "  === Game library's " << name << " ===\n";
-    for(Game g : lib) {
+    if (lib.empty()) {
+        cout << "  Your library is empty.\n";
+        return;
+    }
+    cout << "  === Game library of " << name << " ===\n";
+    for (const auto& g : lib) {
         cout << "  === Game Specs ===\n";
-        cout << "ID: " << g.id << '\n';
-        cout << "Name: " << g.name << '\n';
-        //cout << "Price (after discount): " << g.afterDiscount << '\n'; da mua game roi thi khong can show gia nua
-        cout << "Genre: " << g.genre << '\n';
-        cout << "Age Rating: " << g.ageRating << '\n';
-        //cout << "Publisher: " << g.publisher << '\n'; // con check hoi y kien tu Dieu
-        cout << '\n';
+        cout << "ID: " << g.id << "\n";
+        cout << "Name: " << g.name << "\n";
+        cout << "Genre: " << g.genre << "\n";
+        cout << "Age Rating: " << g.ageRating << "\n\n";
     }
 }
 
+// ========== FILE HANDLING ==========
+void User::saveUserDetail() const {
+    string path = "D:\\C++\\University\\Second Year\\Semester 3\\PBL2\\PBL2\\PBL2_Project\\data\\users\\" + username + ".txt";
+    ofstream fout(path);
+    if (!fout.is_open()) {
+        cerr << "Error: cannot write user file: " << path << "\n";
+        return;
+    }
+
+    fout << "username:" << username << "\n";
+    fout << "password:" << password << "\n";
+    fout << "name:" << name << "\n";
+    fout << "age:" << age << "\n";
+
+    fout << "cart:";
+    for (size_t i = 0; i < cart.size(); ++i) {
+        fout << cart[i].id;
+        if (i + 1 < cart.size()) fout << ",";
+    }
+    fout << "\n";
+
+    fout << "game:";
+    for (size_t i = 0; i < lib.size(); ++i) {
+        fout << lib[i].id;
+        if (i + 1 < lib.size()) fout << ",";
+    }
+    fout << "\n";
+
+    fout << "wallet:" << wallet << "\n";
+    fout.close();
+}
+
+void User::loadAllUsersSummary() {
+    std::string path = "D:\\C++\\University\\Second Year\\Semester 3\\PBL2\\PBL2\\PBL2_Project\\data\\users\\users.txt";
+    std::ifstream in(path);
+    if (!in.is_open()) {
+        std::cerr << "Error: cannot open users summary file.\n";
+        return;
+    }
+
+    std::string line;
+    getline(in, line); // skip header line (username;password;name;age;cart;game;wallet)
+
+    // === helper lambda to trim space + \r ===
+    auto trim = [](std::string &s) {
+        while (!s.empty() && (s.back() == '\r' || s.back() == ' ' || s.back() == '\t')) s.pop_back();
+        while (!s.empty() && (s.front() == ' ' || s.front() == '\t')) s.erase(s.begin());
+    };
+
+    while (getline(in, line)) {
+        if (line.empty()) continue;
+        std::stringstream ss(line);
+
+        std::string username, password, name, ageStr, cartStr, gameStr, walletStr;
+        getline(ss, username, ';');
+        getline(ss, password, ';');
+        getline(ss, name, ';');
+        getline(ss, ageStr, ';');
+        getline(ss, cartStr, ';');
+        getline(ss, gameStr, ';');
+        getline(ss, walletStr, ';');
+
+        trim(username);
+        trim(password);
+        trim(name);
+        trim(ageStr);
+        trim(cartStr);
+        trim(gameStr);
+        trim(walletStr);
+
+        int age = ageStr.empty() ? 0 : stoi(ageStr);
+        double wallet = walletStr.empty() ? 0.0 : stod(walletStr);
+
+        User* u = new User(username, password, name, age, wallet);
+
+        // Parse cart (EA1,SE1,...)
+        std::stringstream cartSS(cartStr);
+        std::string item;
+        while (getline(cartSS, item, ',')) {
+            trim(item);
+            if (!item.empty()) u->cartIds.push_back(item);
+        }
+
+        // Parse owned games (SE1,UB1,...)
+        std::stringstream gameSS(gameStr);
+        while (getline(gameSS, item, ',')) {
+            trim(item);
+            if (!item.empty()) u->libIds.push_back(item);
+        }
+
+        allUsers.push_back(u);
+    }
+
+    in.close();
+}
+
+void User::saveAllUsersSummary() {
+    string path = "D:\\C++\\University\\Second Year\\Semester 3\\PBL2\\PBL2\\PBL2_Project\\data\\users\\users.txt";
+    ofstream out(path);
+    if (!out.is_open()) {
+        cerr << "Error: cannot write users summary file.\n";
+        return;
+    }
+
+    out << "username;password;name;age;cart;game;wallet\n";
+    for (auto* u : allUsers) {
+        if (!u) continue;
+        out << u->username << ";"
+            << u->password << ";"
+            << u->name << ";"
+            << u->age << ";";
+
+        // cart
+        for (size_t i = 0; i < u->cart.size(); ++i) {
+            out << u->cart[i].id;
+            if (i + 1 < u->cart.size()) out << ",";
+        }
+        out << ";";
+
+        // games
+        for (size_t i = 0; i < u->lib.size(); ++i) {
+            out << u->lib[i].id;
+            if (i + 1 < u->lib.size()) out << ",";
+        }
+        out << ";";
+
+        out << u->wallet << "\n";
+    }
+    out.close();
+}
 
 
+User* User::checkUserExist(const string& username, const string& password) {
+    for (auto* u : allUsers) {
+        if (u && u->username == username && u->password == password)
+            return u;
+    }
+    return nullptr;
+}
 
+bool User::confirmPassword() {
+    string input;
+    int attempts = 0;
+    while (attempts < 3) {
+        cout << "Enter your password to confirm: ";
+        getline(cin, input);
+        if (input == password) {
+            cout << "Password confirmed.\n";
+            return true;
+        } else {
+            attempts++;
+            cout << "Incorrect password (" << attempts << "/3)\n";
+        }
+    }
+    return false;
+}

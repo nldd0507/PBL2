@@ -3,7 +3,7 @@
 #include "console_utils.h"
 #include "publisher.h"
 #include "game.h"
-
+#include <bits/stdc++.h>
 #include <vector>
 #include <string>
 #include <sstream>
@@ -72,7 +72,7 @@ void Publisher::addGame() {
     Game::saveAllGamesSummary();
     newGame->saveGameDetail();
     //TODO : Them saveGameDetail;
-    utils::await(1000); 
+    utils::await(1000);
     std::cout << "Game \"" << name << "\" added successfully!\n";
 }
 
@@ -260,7 +260,9 @@ void Publisher::printAllWithGames() {
 }
 
 void Publisher::loadAllPublishersSummary(const std::string& filename) {
-    std::string path = "data/publishers/" + filename;
+    //std::string path = "data/publishers/" + filename;
+    // Khanh sua duong dan -> moi chay duoc
+    std::string path = "D:\\C++\\University\\Second Year\\Semester 3\\PBL2\\PBL2\\PBL2_Project\\data\\publishers\\" + filename;
     std::ifstream in(path);
     if (!in) {
         std::cerr << "Cannot open file: " << filename << std::endl;
@@ -291,7 +293,9 @@ void Publisher::loadAllPublishersSummary(const std::string& filename) {
 }
 
 void Publisher::saveAllPublishersSummary(const std::string& filename) {
-    std::string path = "data/publishers/" + filename;
+    //std::string path = "data/publishers/" + filename;
+    // Khanh sua -> se xoa sau
+    std::string path = "D:\\C++\\University\\Second Year\\Semester 3\\PBL2\\PBL2\\PBL2_Project\\data\\publishers\\" + filename;
     std::ofstream out(path);
     if (!out) {
         std::cerr << "Cannot open file: " << filename << std::endl;
@@ -331,7 +335,9 @@ void Publisher::clearAll() {
 }
 
 void Publisher::savePublisherDetail() const {
-    std::string path = "data/publishers/" + id + ".txt";
+    //std::string path = "data/publishers/" + id + ".txt";
+    // Khanh sua -> se xoa sau
+    std::string path = "D:\\C++\\University\\Second Year\\Semester 3\\PBL2\\PBL2\\PBL2_Project\\data\\publishers\\" + id + ".txt";
     std::ofstream fout(path);
     if (!fout.is_open()) {
         std::cerr << "Error: cannot write publisher file: " << path << "\n";
@@ -343,12 +349,12 @@ void Publisher::savePublisherDetail() const {
     fout << "name:" << name << "\n";
     fout << "password:" << password << "\n";
 
-    fout << "games:";   
+    fout << "games:";
     for (auto* game : gameList) {
         fout << game->getId()<<";";
     }
     fout << "\n";
-    fout.close(); 
+    fout.close();
     saveAllPublishersSummary();
 }
 

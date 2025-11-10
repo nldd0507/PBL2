@@ -23,3 +23,4 @@ FR1;Elden Ring;69.99;15;RPG;M;FromSoftware;
 FR2;Dark Souls;59.99;35;RPG;M;FromSoftware;
 EA03;Neuman;54.93;10;RPG;M;Electronic Arts;
 EA04;rivo;34;15;Fighting;M;Electronic Arts;
+EA05;Rine;54.3;10;Sport;M;Electronic Arts;

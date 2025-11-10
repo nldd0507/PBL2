@@ -1,0 +1,7 @@
+username:kira
+password:kira1
+name:Khanh
+age:18
+cart:
+game:
+wallet:251

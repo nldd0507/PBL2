@@ -28,12 +28,13 @@ public:
 	void setName(const std::string& n) { name = n; }
 	void setPrice(const double& p) { price = p; }
 	void setDiscount(const double& d) { discount = d; }
+	double getAfterDiscount() const { return afterDiscount; }
 	void setGenre(const std::string &g) { genre = g; }
 	void setAgeRating(const std::string &ar) { ageRating = ar; }
 
 	friend std::ostream& operator << (std::ostream& o, const Game& g);
 
-	//Static Method 
+	//Static Method
 	static void addGame();
 	static Game* getGameById(const std::string& id);
 	static bool isExist(const std::string &id);

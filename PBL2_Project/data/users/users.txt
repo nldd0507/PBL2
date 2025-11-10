@@ -1,0 +1,3 @@
+username;password;name;age;cart;game;wallet
+kira;kira1;Khanh;18;;;251
+diep;abc123;Diep;19;;;300

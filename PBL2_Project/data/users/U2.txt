@@ -1,0 +1,7 @@
+username:diep
+password:abc123
+name:Diep
+age:19
+cart:
+game:SE2
+wallet:300

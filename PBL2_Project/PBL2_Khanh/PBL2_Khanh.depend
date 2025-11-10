@@ -1,12 +1,13 @@
 # depslib dependency file v1.0
-1757246337 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\game.cpp
+1761352902 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\game.cpp
+	<filesystem>
 	"Utils.h"
+	<bits/stdc++.h>
 	"game.h"
 	"publisher.h"
 
-1757246337 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\utils.h
+1760354686 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\utils.h
 	"publisher.h"
-	"PublisherManager.h"
 	<string>
 	<sstream>
 	<iostream>
@@ -14,7 +15,7 @@
 	<thread>
 	<iomanip>
 
-1757246337 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\publisher.h
+1760354686 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\publisher.h
 	<vector>
 	<string>
 	<memory>
@@ -25,9 +26,11 @@
 	"publisher.h"
 	<vector>
 
-1757655530 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\game.h
+1761330777 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\game.h
 	<string>
 	<memory>
+	<vector>
+	<iostream>
 
 1757246337 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\gamemanager.cpp
 	"utils.h"
@@ -51,24 +54,27 @@
 	<memory>
 	<vector>
 
-1757645468 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\main.cpp
-	<iostream>
-	<memory>
-	"PublisherManager.h"
-	"GameManager.h"
+1762562741 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\main.cpp
 	"publisher.h"
 	"user.h"
+	"menu.h"
+	"utils.h"
+	<fstream>
+	<sstream>
+	<vector>
 
-1757246337 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\publisher.cpp
+1761320658 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\publisher.cpp
 	"utils.h"
 	"console_utils.h"
 	"publisher.h"
 	"game.h"
+	<bits/stdc++.h>
 	<vector>
 	<string>
+	<sstream>
 	<iostream>
 
-1757246337 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\console_utils.h
+1760354686 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\console_utils.h
 	<string>
 	<windows.h>
 	<iomanip>
@@ -84,15 +90,38 @@
 	<fstream>
 	<iostream>
 
-1757656767 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\user.h
-	<bits/stdc++.h>
+1761331055 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\user.h
+	<iostream>
 	"game.h"
-	"GameManager.h"
+	<string>
+	<vector>
+	<iostream>
+	"game.h"
 
-1757634691 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\user.cpp
-	<bits/stdc++.h>
-	"utils.h"
-	"game.h"
-	"GameManager.h"
+1761333505 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\user.cpp
 	"user.h"
+	"game.h"
+	"utils.h"
+	"console_utils.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	<vector>
+	<string>
+
+1761330197 d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\menu.h
+	<string>
+	"publisher.h"
+	"user.h"
+
+1761352316 source:d:\c++\university\second year\semester 3\pbl2\pbl2\pbl2_project\menu.cpp
+	"menu.h"
+	"game.h"
+	"publisher.h"
+	"user.h"
+	"console_utils.h"
+	"utils.h"
+	<string>
+	<iostream>
+	<cstdlib>
 

@@ -1,6 +1,6 @@
 #include <filesystem>
 #include "Utils.h"
-
+#include <bits/stdc++.h>
 #include "game.h"
 #include "publisher.h"
 
@@ -8,11 +8,11 @@ std::vector<Game*> Game::allGames = {};
 
 Game::Game(const std::string &i,
 	const std::string &n,
-	const double &p, 
-	const double &d, 
-	const std::string &g, 
-	const std::string &ar, 
-	Publisher *pub) 
+	const double &p,
+	const double &d,
+	const std::string &g,
+	const std::string &ar,
+	Publisher *pub)
 	: id(i), name(n), price(p), discount(d), genre(g), ageRating(ar), publisher(pub){
 	afterDiscount = price * (100 -discount) /100;
 	allGames.push_back(this);
@@ -30,7 +30,7 @@ Game::~Game() {
 }
 
 
-std::ostream& operator <<(std::ostream& o, const Game& g) { 
+std::ostream& operator <<(std::ostream& o, const Game& g) {
 	o << g.id << " | " << g.name << " | " << g.price << " | " << g.discount << " | " << g.afterDiscount << " | " << g.genre << " | " << g.ageRating;
 	if (g.publisher) {
 		o << " | " << g.publisher->getSortName() << std::endl;
@@ -59,12 +59,13 @@ bool Game::isExist(const std::string &id) {
 void Game::printAllGames() {
 	std::cout << allGames.size() << std::endl;
 	for (auto* g : allGames) {
-		std::cout << *g; 
+		std::cout << *g;
 	}
 }
 
 void Game::loadAllGamesSummary (const std::string& filename) {
-	std::string path = "data/games/" + filename;
+	//std::string path = "data/games/" + filename;
+	std::string path = "D:\\C++\\University\\Second Year\\Semester 3\\PBL2\\PBL2\\PBL2_Project\\data\\games\\" + filename;
 	std::ifstream in(path);
 	if (!in) {
 		std::cerr << "Cannot open file: " << filename << std::endl;
@@ -112,7 +113,7 @@ void Game::loadAllGamesSummary (const std::string& filename) {
 }
 
 void Game::saveAllGamesSummary(const std::string& filename) {
-	std::string path = "data/games/" + filename;
+	std::string path = "D:\\C++\\University\\Second Year\\Semester 3\\PBL2\\PBL2\\PBL2_Project\\data\\games\\" + filename;
 	std::ofstream out(path);
 	if (!out) {
 		std::cerr << "Cannot open file: " << filename << std::endl;
@@ -135,8 +136,10 @@ void Game::saveGameDetail() const {
 
 	namespace fs = std::filesystem;
 
-	std::string dir = "data/games/" + publisher->getId();
-	std::string path = dir + "/" + id + ".txt"; 
+	//std::string dir = "data/games/" + publisher->getId();
+	std::string dir = "D:\\C++\\University\\Second Year\\Semester 3\\PBL2\\PBL2\\PBL2_Project\\data\\games\\" + publisher->getId();
+	//std::string path = dir + "/" + id + ".txt";
+	std::string path = dir + "\\" + id + ".txt";
 
 
 	fs::create_directories(dir);

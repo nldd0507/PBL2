@@ -2,4 +2,4 @@ id:P1
 sortName:EA
 name:Electronic Arts
 password:abc1
-games:EA1;EA2;EA03;EA04;
+games:EA1;EA2;EA03;EA04;EA05;

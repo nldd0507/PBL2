@@ -34,19 +34,18 @@
 		</Compiler>
 		<Unit filename="../Game.cpp" />
 		<Unit filename="../GameHashMap.h" />
-		<Unit filename="../GameManager.cpp" />
-		<Unit filename="../GameManager.h" />
 		<Unit filename="../PBL2_Project.vcxproj" />
 		<Unit filename="../PBL2_Project.vcxproj.filters" />
 		<Unit filename="../Publisher.cpp" />
-		<Unit filename="../PublisherManager.cpp" />
-		<Unit filename="../PublisherManager.h" />
 		<Unit filename="../console_utils.h" />
+		<Unit filename="../data/games/games.txt" />
+		<Unit filename="../data/publishers/publishers.txt" />
+		<Unit filename="../data/users/users.txt" />
 		<Unit filename="../game.h" />
-		<Unit filename="../games.txt" />
 		<Unit filename="../main.cpp" />
+		<Unit filename="../menu.cpp" />
+		<Unit filename="../menu.h" />
 		<Unit filename="../publisher.h" />
-		<Unit filename="../publishers.txt" />
 		<Unit filename="../stack.h" />
 		<Unit filename="../user.cpp" />
 		<Unit filename="../user.h" />
